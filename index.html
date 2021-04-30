@@ -1,0 +1,74 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./style.css" />
+        <title>SD Fb Poster</title>
+    </head>
+    <body>
+        <div class="needed-data">
+            <div>
+                <label for="post-message">Write caption here: </label><br />
+                <input
+                    type="text"
+                    size="100"
+                    name="post-message"
+                    id="post-message"
+                />
+            </div>
+            <div>
+                <label for="post-link">Paste link url here: </label><br />
+                <input type="text" size="100" name="post-link" id="post-link" />
+            </div>
+        </div>
+
+        <div class="token-input">
+            <div>
+                <label for="access-token">Access Token goes here: </label><br />
+                <input
+                    type="text"
+                    size="100"
+                    name="access-token"
+                    id="access-token"
+                />
+            </div>
+            <a
+                href="https://www.facebook.com/v2.1/dialog/oauth?redirect_uri=https%3A%2F%2Fhootsuite.com%2Flogin%2Fmethod%2Ffacebook%2F&scope=email%2Cpublish_actions%2Cmanage_pages%2Cpublish_pages%2Cuser_managed_groups%2Cuser_groups%2Cxmpp_login&response_type=token%20code&client_id=183319479511&ret=login&display=page&locale=en_US"
+                target="_blank"
+                >Get facebook access token!</a
+            >
+            <input
+                type="button"
+                value="Log in"
+                onclick="getTokenAndFetchPages()"
+            />
+        </div>
+
+        <div id="root">
+            <div class="buttons-after-login">
+                <div>
+                    <input
+                        class="post-to-selected"
+                        type="button"
+                        value="Post to selected pages!"
+                        onclick="sendRequestForSelected()"
+                    />
+                </div>
+                <input
+                    class="sellect-all"
+                    type="button"
+                    value="Select all pages"
+                    onclick="selectAllPages()"
+                />
+                <input
+                    class="desellect-all"
+                    type="button"
+                    value="Deselect all pages!"
+                    onclick="deselectAllPages()"
+                />
+            </div>
+        </div>
+        <script src="./script.js"></script>
+    </body>
+</html>
